@@ -116,9 +116,12 @@ export default function App() {
   })
 
   function formatOperand(operand) {
-    if (operand == null) return
-    const [integer, decimal] = operand.split('.')
-    if (decimal == null) return INTEGER_FORMATTER.format(integer)
+    if (operand && operand.includes(".")) {
+      const [integer, decimal] = operand.split(".");
+      return [INTEGER_FORMATTER.format(integer), decimal].join(".");
+    } else if (operand) {
+      return INTEGER_FORMATTER.format(operand);
+    }
   }
   
   const evaluate = ({currentOperand, previousOperand, operation}) => {
@@ -145,6 +148,8 @@ export default function App() {
 
     return computation.toString();
   };
+
+  
 
   return (
     <div className="calculator-grid">
