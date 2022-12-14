@@ -159,27 +159,26 @@ export default function App() {
   };
 
   
-
   return (
     <div className="calculator-grid">
       <div className="output">
-        <div className="previous-operand">{calculation.previousOperand} {calculation.operation}</div>
+        <div className="previous-operand">{formatOperand(calculation.previousOperand)} {calculation.operation}</div>
         <div className="current-operand">{formatOperand(calculation.currentOperand)}</div>
       </div>
       <button type="button" className="span-two" onClick={clear}>AC</button>
       <button type="button" onClick={deleteDigit}>DEL</button>
       <button type="button" value={"÷"} onClick={chooseOperation}>÷</button>
-      <button type="button" value={"1"} onClick={addDigit}>1</button>
-      <button type="button" value={"2"} onClick={addDigit}>2</button>
-      <button type="button" value={"3"} onClick={addDigit}>3</button>
+      <button type="button" value={"7"} onClick={addDigit}>7</button>
+      <button type="button" value={"8"} onClick={addDigit}>8</button>
+      <button type="button" value={"9"} onClick={addDigit}>9</button>
       <button type="button" value={"×"} onClick={chooseOperation}>×</button>
       <button type="button" value={"4"} onClick={addDigit}>4</button>
       <button type="button" value={"5"} onClick={addDigit}>5</button>
       <button type="button" value={"6"} onClick={addDigit}>6</button>
       <button type="button" value={"+"} onClick={chooseOperation}>+</button>
-      <button type="button" value={"7"} onClick={addDigit}>7</button>
-      <button type="button" value={"8"} onClick={addDigit}>8</button>
-      <button type="button" value={"9"} onClick={addDigit}>9</button>
+      <button type="button" value={"1"} onClick={addDigit}>1</button>
+      <button type="button" value={"2"} onClick={addDigit}>2</button>
+      <button type="button" value={"3"} onClick={addDigit}>3</button>
       <button type="button" value={"-"} onClick={chooseOperation}>-</button>
       <button type="button" value={"."} onClick={addDigit}>.</button>
       <button type="button" value={"0"} onClick={addDigit}>0</button>
@@ -187,18 +186,3 @@ export default function App() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
