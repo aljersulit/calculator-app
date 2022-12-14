@@ -27,7 +27,7 @@ export default function App() {
         return state;
 
       } else if (currentOperand.includes(".") 
-        && currentOperand.slice(currentOperand.indexOf(".")).length > 8) { /* to limit decimal places up to 8 */
+        && currentOperand.slice(currentOperand.indexOf(".")).length > 6) { /* to limit decimal places up to 6 */
         return state;
 
       } else {
@@ -146,7 +146,16 @@ export default function App() {
         break;
     }
 
-    return computation.toString();
+    const compStr = computation.toString();
+    if (compStr.includes(".")) {
+      const [integer, decimal] = compStr.split(".");
+      if (decimal.length > 6) {
+        let decArr = decimal.split("");
+        decArr.splice(6);
+        return [integer, decArr.join("")].join(".");
+      }
+    }
+    return compStr;
   };
 
   
